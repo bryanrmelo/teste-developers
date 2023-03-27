@@ -50,5 +50,6 @@ Aplicação de design patterns;
 Aplicação de testes;
 Separação de módulos e componentes;
 Legibilidade;
-Criação do ambiente com Docker.
-Boa sorte!
+
+
+### Boa sorte!
