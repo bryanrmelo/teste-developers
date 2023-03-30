@@ -43,7 +43,9 @@
 						<td>{$empresa["nome"]}</td>
 						<td>{$empresa["email"]}</td>
 						<td>{$empresa["cep"]}</td>
-						<td>{$empresa["tamanho"]}</td>
+						{if $empresa["tamanho"]==0}<td>Pequeno Porte</td>{/if}
+						{if $empresa["tamanho"]==1}<td>Médio Porte</td>{/if}
+						{if $empresa["tamanho"]==2}<td>Grande Porte</td>{/if}
 						<td>{$empresa["ativo"]}</td>
 						<td>
 							<a href="editar?editId={$empresa['id']}" style="color:green">

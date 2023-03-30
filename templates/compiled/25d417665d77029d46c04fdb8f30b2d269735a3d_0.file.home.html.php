@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-03-30 16:24:27
+/* Smarty version 3.1.33, created on 2023-03-30 17:25:29
   from '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6425e1eb6d4dc0_51816880',
+  'unifunc' => 'content_6425f039d71e37_46956753',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '25d417665d77029d46c04fdb8f30b2d269735a3d' => 
     array (
       0 => '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html',
-      1 => 1680204156,
+      1 => 1680207927,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_6425e1eb6d4dc0_51816880 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6425f039d71e37_46956753 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_debug = new Smarty_Internal_Debug;
  $_smarty_debug->display_debug($_smarty_tpl);
 unset($_smarty_debug);
@@ -81,8 +81,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["cep"];?>
 </td>
-						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["tamanho"];?>
-</td>
+						<?php if ($_smarty_tpl->tpl_vars['empresa']->value["tamanho"] == 0) {?><td>Pequeno Porte</td><?php }?>
+						<?php if ($_smarty_tpl->tpl_vars['empresa']->value["tamanho"] == 1) {?><td>Médio Porte</td><?php }?>
+						<?php if ($_smarty_tpl->tpl_vars['empresa']->value["tamanho"] == 2) {?><td>Grande Porte</td><?php }?>
 						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["ativo"];?>
 </td>
 						<td>

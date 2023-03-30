@@ -60,7 +60,6 @@ class Repository
         }
         $query = "INSERT INTO empresa (nome, cnpj, email, cep, tamanho, ativo) VALUES ('$nome','$cnpj','$email','$cep','$tamanho','$ativo')";
 
-        echo $query;
         $sql = $this->conexao->query($query);
         if ($sql == true) {
             header("Location:home?msg1=adicionar");
