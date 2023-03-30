@@ -1,9 +1,38 @@
-{debug}
+<?php
+/* Smarty version 3.1.33, created on 2023-03-29 21:48:15
+  from '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_6424dc4f558288_52808308',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '25d417665d77029d46c04fdb8f30b2d269735a3d' => 
+    array (
+      0 => '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html',
+      1 => 1680137271,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:head.html' => 1,
+    'file:navbar.html' => 1,
+  ),
+),false)) {
+function content_6424dc4f558288_52808308 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_debug = new Smarty_Internal_Debug;
+ $_smarty_debug->display_debug($_smarty_tpl);
+unset($_smarty_debug);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-{include 'head.html'}
-{include 'navbar.html'}
+<?php $_smarty_tpl->_subTemplateRender('file:head.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender('file:navbar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <body>
 	<div class="container">
@@ -40,31 +69,54 @@
 					</tr>
 				</thead>
 				<tbody>
-					{foreach from=$empresas item=empresa}
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['empresas']->value, 'empresa');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
+?>
 					<tr>
-						<th>{$empresa["cnpj"]}</th>
-						<td>{$empresa["nome"]}</td>
-						<td>{$empresa["email"]}</td>
-						<td>{$empresa["cep"]}</td>
-						<td>{$empresa["tamanho"]}</td>
-						<td>{$empresa["ativo"]}</td>
+						<th><?php echo $_smarty_tpl->tpl_vars['empresa']->value["cnpj"];?>
+</th>
+						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["nome"];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["email"];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["cep"];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["tamanho"];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["ativo"];?>
+</td>
 					</tr>
-					{/foreach}
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				</tbody>
 			</table>
 			<div aria-label="Page navigation example">
 				<ul class="pagination">
 					<li class="page-item">
-						<a class="page-link" href="home?pagina={$pagina - 1}" aria-label="Anterior">
+						<a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['pagina']->value-1;?>
+" aria-label="Anterior">
 							<span aria-hidden="true">&laquo;</span>
 						</a>
 					</li>
-					{for $i=1 to $totalPaginas}
-					<li class="page-item"><a class="page-link" href="home?pagina={$i}">{$i}</a></li>
-					{/for}
+					<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPaginas']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['totalPaginas']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+					<li class="page-item"><a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a></li>
+					<?php }
+}
+?>
 					<!-- CONSERTAR -->
 					<li class="page-item">
-						<a class="page-link" href="home?pagina={$pagina + 1}" aria-label="Próximo">
+						<a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['pagina']->value+1;?>
+" aria-label="Próximo">
 							<span aria-hidden="true">&raquo;</span>
 						</a>
 					</li>
@@ -151,9 +203,18 @@
 							<div class="form-floating">
 								<select class="form-select form-select mb-3" id="selectEmpresas"
 									aria-label=".form-select example">
-									{foreach from=$empresasFiltradas item=empresa}
-									<option value="{$empresa[id]}">{$empresa["nome"]}</option>
-									{/foreach}
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['empresasFiltradas']->value, 'empresa');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
+?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['empresa']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_id']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_id']->value['index'] : null)];?>
+"><?php echo $_smarty_tpl->tpl_vars['empresa']->value["nome"];?>
+</option>
+									<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								</select>
 								<label for="selectEmpresas">Selecione a empresa</label>
 							</div>
@@ -290,4 +351,5 @@
 	
 </body>
 
-</html>
+</html><?php }
+}
