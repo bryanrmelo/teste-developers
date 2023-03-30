@@ -8,9 +8,9 @@ O desafio consiste em implementar uma aplicação web utilizando o escopo PHP j�
 
 ## Sua aplicação deve possuir:
 
-Listagem geral dos registros.
-Criar, editar, excluir e listar registros.
-Criar pelo menos, um campo do tipo (select), e (radio/checkbox), no cadastro/edição.
+~~Listagem geral dos registros.~~
+~~Criar~~, editar, excluir e listar registros.
+~~Criar pelo menos, um campo do tipo (select), e (radio/checkbox), no cadastro/edição.~~
 Deve ser filtrável e ordenável por qualquer campo, e possuir paginação de 20 itens.
 Deve possuir formulários para criação e atualização de seus itens.
 Deve permitir a deleção de qualquer item de sua lista.
