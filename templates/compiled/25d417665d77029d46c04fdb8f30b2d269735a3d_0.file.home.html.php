@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-03-29 21:48:15
+/* Smarty version 3.1.33, created on 2023-03-30 16:24:27
   from '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6424dc4f558288_52808308',
+  'unifunc' => 'content_6425e1eb6d4dc0_51816880',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '25d417665d77029d46c04fdb8f30b2d269735a3d' => 
     array (
       0 => '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/home.html',
-      1 => 1680137271,
+      1 => 1680204156,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:head.html' => 1,
     'file:navbar.html' => 1,
+    'file:footer.html' => 1,
   ),
 ),false)) {
-function content_6424dc4f558288_52808308 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6425e1eb6d4dc0_51816880 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_debug = new Smarty_Internal_Debug;
  $_smarty_debug->display_debug($_smarty_tpl);
 unset($_smarty_debug);
@@ -34,29 +35,25 @@ unset($_smarty_debug);
 $_smarty_tpl->_subTemplateRender('file:navbar.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
+<head>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+</head>
+
 <body>
 	<div class="container">
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
-					<div class="col-sm-9">
+					<div class="col-sm-8">
 						<h2><b>Empresas</b></h2>
 					</div>
-					<div class="col-sm-1">
+					<div class="col-sm-4">
 						<button type="button" class="btn btn-info add-new" data-bs-toggle="modal"
 							data-bs-target="#modalAdicionar"><i class="fa fa-plus"></i> Adicionar</button>
 					</div>
-					<div class="col-sm-1">
-						<button type="button" class="btn btn-warning add-new" data-bs-toggle="modal"
-							data-bs-target="#modalBuscarEdicao"><i class="fas fa-edit"></i> Editar</button>
-					</div>
-					<div class="col-sm-1">
-						<button type="button" class="btn btn-danger add-new" data-bs-toggle="modal"
-							data-bs-target="#modalBuscarRemocao"><i class="fas fa-ban"></i> Remover</button>
-					</div>
 				</div>
 			</div>
-			<table class="table table-striped table-bordered">
+			<table class="table table-striped table-bordered" id="tabelaEmpresas">
 				<caption>Lista de empresas</caption>
 				<thead>
 					<tr>
@@ -66,6 +63,7 @@ $_smarty_tpl->_subTemplateRender('file:navbar.html', $_smarty_tpl->cache_id, $_s
 						<th scope="col">CEP</th>
 						<th scope="col">Tamanho</th>
 						<th scope="col">Ativo</th>
+						<th scope="col">Ação</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -87,6 +85,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['empresa']->value["ativo"];?>
 </td>
+						<td>
+							<a href="editar?editId=<?php echo $_smarty_tpl->tpl_vars['empresa']->value['id'];?>
+" style="color:green">
+								<i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<a href="home?deleteId=<?php echo $_smarty_tpl->tpl_vars['empresa']->value['id'];?>
+" style="color:red"
+								onclick="confirm('Tem certeza que deseja remover?')">
+								<i class="fa fa-trash" aria-hidden="true"></i>
+							</a>
+						</td>
 					</tr>
 					<?php
 }
@@ -94,38 +102,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				</tbody>
 			</table>
-			<div aria-label="Page navigation example">
-				<ul class="pagination">
-					<li class="page-item">
-						<a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['pagina']->value-1;?>
-" aria-label="Anterior">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<?php
-$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPaginas']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['totalPaginas']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
-					<li class="page-item"><a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a></li>
-					<?php }
-}
-?>
-					<!-- CONSERTAR -->
-					<li class="page-item">
-						<a class="page-link" href="home?pagina=<?php echo $_smarty_tpl->tpl_vars['pagina']->value+1;?>
-" aria-label="Próximo">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+
 		</div>
-
-
-
 		<!-- MODAL PARA ADICIONAR -->
 		<div class="modal fade" id="modalAdicionar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 			aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -163,192 +141,43 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 							</div>
 							<div class="mb-3">
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" name="ativo" id="ativo" value="1">
+									<input class="form-check-input" type="checkbox" name="ativo" id="ativo"
+										value="Ativo">
 									<label class="form-label" for="ativo">
 										Ativo
 									</label>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-success mb-3 mt-3" name="adicionar"
+							<button type="submit" class="btn btn-success mb-3 mt-3" name="btnAdicionar"
 								value="click">Salvar</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- MODAL PARA BUSCAR PARA A EDIÇÃO -->
-		<div class="modal fade" id="modalBuscarEdicao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Buscar empresa</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<form method="post">
-						<div class="modal-body">
-							<div class="form-floating">
-								<select class="form-select form-select mb-3" id="floatingSelect"
-									aria-label=".form-select example" name="metodoBusca">
-									<option value="cnpj">CNPJ</option>
-									<option value="nome">Nome</option>
-									<option value="email">Email</option>
-									<option value="cep">CEP</option>
-								</select>
-								<label for="floatingSelect">Selecione como deseja pesquisar</label>
-							</div>
-							<div class="mb-3">
-								<input type="text" class="form-control" id="busca" placeholder="Pesquisar" name="busca">
-							</div>
-							<div class="form-floating">
-								<select class="form-select form-select mb-3" id="selectEmpresas"
-									aria-label=".form-select example">
-									<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['empresasFiltradas']->value, 'empresa');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['empresa']->value) {
+	</div>
+
+	<?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"><?php echo '</script'; ?>
+>
+	<?php echo '<script'; ?>
+ src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"><?php echo '</script'; ?>
+>
+	<?php echo '<script'; ?>
+>
+		$(document).ready(function () {
+			$('#tabelaEmpresas').DataTable({
+				"language": {
+					"url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json"
+				},
+				responsive: true
+			});
+		});
+	<?php echo '</script'; ?>
+>
+
+	<?php $_smarty_tpl->_subTemplateRender('file:footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-									<option value="<?php echo $_smarty_tpl->tpl_vars['empresa']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_id']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_id']->value['index'] : null)];?>
-"><?php echo $_smarty_tpl->tpl_vars['empresa']->value["nome"];?>
-</option>
-									<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-								</select>
-								<label for="selectEmpresas">Selecione a empresa</label>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-success" name="buscarEmpresasFiltradas"
-								value="click">Buscar</button>
-						</div>
-						<!-- data-bs-target="#modalEditar" -->
-					</form>
-				</div>
-			</div>
-		</div>
-		<!-- MODAL PARA EDITAR -->
-		<div class="modal fade" id="modalEditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Editar empresa</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="mb-3">
-								<label for="nome" class="form-label">Nome</label>
-								<input type="text" class="form-control" id="nome">
-							</div>
-							<div class="mb-3">
-								<label for="cnpj" class="form-label">CNPJ</label>
-								<input type="text" class="form-control" id="cnpj" placeholder="00.000.000/0001-00">
-							</div>
-							<div class="mb-3">
-								<label for="email" class="form-label">Email</label>
-								<input type="email" class="form-control" id="Email">
-							</div>
-							<div class="mb-3">
-								<label for="cep" class="form-label">CEP</label>
-								<input type="text" class="form-control" id="cep">
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-success">Salvar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- MODAL PARA BUSCAR PARA REMOÇÃO -->
-		<div class="modal fade" id="modalBuscarRemocao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Buscar empresa</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form action="home.php" method="post`">
-							<div class="form-floating">
-								<select class="form-select form-select mb-3" id="floatingSelect"
-									aria-label=".form-select example">
-									<option selected>Selecione</option>
-									<option value="cnpj">CNPJ</option>
-									<option value="nome">Nome</option>
-									<option value="email">Email</option>
-									<option value="cep">CEP</option>
-								</select>
-								<label for="floatingSelect">Selecione como deseja pesquisar</label>
-							</div>
-							<div class="mb-3">
-								<input type="text" class="form-control" id="busca">
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-success" data-bs-toggle="modal"
-							data-bs-target="#modalRemover">Buscar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- MODAL PARA REMOVER -->
-		<div class="modal fade" id="modalRemover" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Adicionar nova empresa</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="mb-3">
-								<label for="nome" class="form-label">Nome</label>
-								<input type="text" class="form-control" id="nome">
-							</div>
-							<div class="mb-3">
-								<label for="cnpj" class="form-label">CNPJ</label>
-								<input type="text" class="form-control" id="cnpj" placeholder="00.000.000/0001-00">
-							</div>
-							<div class="mb-3">
-								<label for="email" class="form-label">Email</label>
-								<input type="email" class="form-control" id="Email">
-							</div>
-							<div class="mb-3">
-								<label for="cep" class="form-label">CEP</label>
-								<input type="text" class="form-control" id="cep">
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-success">Salvar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<footer class="footer mt-auto bg-light fixed-bottom p-3">
-		<p>
-			&copy; Copyright by RB Team
-		</p>
-	</footer>
-	</div>
-	</div>
-
-	
 </body>
 
 </html><?php }
