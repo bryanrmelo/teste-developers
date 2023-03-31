@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `empresa` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `cnpj` varchar(255) UNIQUE NOT NULL,
-  `nome` varchar(255) UNIQUE DEFAULT NULL,
-  `cep` varchar(255) UNIQUE DEFAULT NULL,
-  `email` varchar(255) UNIQUE DEFAULT NULL,
+  `cnpj` varchar(255) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `cep` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `tamanho` int(11) NOT NULL,
   `ativo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -74,7 +74,9 @@ INSERT INTO `empresa` (`id`, `cnpj`, `nome`, `cep`, `email`, `tamanho`, `ativo`)
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `cnpj` (`cnpj`);
+  ADD UNIQUE KEY `cnpj` (`cnpj`),
+  ADD UNIQUE KEY `nome` (`nome`),
+  ADD UNIQUE KEY `cep` (`cep`);
 
 --
 -- AUTO_INCREMENT for dumped tables
