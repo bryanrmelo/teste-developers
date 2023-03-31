@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-03-30 17:04:49
+/* Smarty version 3.1.33, created on 2023-03-31 15:23:20
   from '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/editar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6425eb61d72073_77998121',
+  'unifunc' => 'content_642725183fc811_50595018',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5e05ab35b920c3e4c0196aea54224534c7cdd0ff' => 
     array (
       0 => '/Users/bryan/Desenvolvimento/GitHub/teste-developers/templates/editar.html',
-      1 => 1680206682,
+      1 => 1680286997,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_6425eb61d72073_77998121 (Smarty_Internal_Template $_smarty_tpl) {
+function content_642725183fc811_50595018 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_debug = new Smarty_Internal_Debug;
  $_smarty_debug->display_debug($_smarty_tpl);
 unset($_smarty_debug);
@@ -98,8 +98,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
             </div>
         </form>
     </div>
-    <?php $_smarty_tpl->_subTemplateRender('file:footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+    
     <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -108,5 +107,8 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
     <?php echo '<script'; ?>
  src="https://kit.fontawesome.com/46fef06780.js" crossorigin="anonymous"><?php echo '</script'; ?>
 >
+
+    <?php $_smarty_tpl->_subTemplateRender('file:footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </body><?php }
 }
